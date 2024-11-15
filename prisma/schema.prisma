@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model companyData {
+  id                        String   @id @default(uuid())
+  symbol                    String   @unique
+  assetType                 String
+  name                      String
+  description               String
+  cik                       String
+  exchange                  String
+  currency                  String
+  country                   String
+  sector                    String
+  industry                  String
+  address                   String
+  officialSite              String?
+  fiscalYearEnd             String
+  latestQuarter             DateTime
+  marketCapitalization      String?  // BigInt as String, nullable for "None"
+  ebitda                    String?  // BigInt as String, nullable for "None"
+  peRatio                   Float?
+  pegRatio                  Float?
+  bookValue                 Float?
+  dividendPerShare          Float?
+  dividendYield             Float?
+  eps                       Float?
+  revenuePerShareTTM        Float?
+  profitMargin              Float?
+  operatingMarginTTM        Float?
+  returnOnAssetsTTM         Float?
+  returnOnEquityTTM         Float?
+  revenueTTM                String?  // BigInt as String, nullable for "None"
+  grossProfitTTM            String?  // BigInt as String, nullable for "None"
+  dilutedEPSTTM             Float?
+  quarterlyEarningsGrowthYOY Float?
+  quarterlyRevenueGrowthYOY Float?
+  analystTargetPrice        Float?
+  analystRatingStrongBuy    Int?
+  analystRatingBuy          Int?
+  analystRatingHold         Int?
+  analystRatingSell         Int?
+  analystRatingStrongSell   Int?
+  trailingPE                Float?
+  forwardPE                 Float?
+  priceToSalesRatioTTM      Float?
+  priceToBookRatio          Float?
+  evToRevenue               Float?
+  evToEbitda                Float?
+  beta                      Float?
+  fiftyTwoWeekHigh          Float?
+  fiftyTwoWeekLow           Float?
+  fiftyDayMovingAverage     Float?
+  twoHundredDayMovingAverage Float?
+  sharesOutstanding         String?  // BigInt as String, nullable for "None"
+  dividendDate              DateTime?
+  exDividendDate            DateTime?
+
+  @@map("companies") // Optional: if you want to set a custom table name in the database
+}
