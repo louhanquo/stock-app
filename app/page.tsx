@@ -81,8 +81,8 @@ const CompanyDataPage: NextPage = () => {
       } else {
         setCompanyData(data);
       }
-    } catch (err) {
-      console.error("Fetch error:", err);
+    } catch (error) {
+      console.error("Fetch error:", error);
       setError("Failed to fetch data");
     } finally {
       setLoading(false);
