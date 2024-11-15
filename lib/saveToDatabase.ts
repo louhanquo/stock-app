@@ -25,7 +25,7 @@ export async function saveCompanyData(symbol: string) {
 
     console.log("Company data saved:", savedCompany);
     return savedCompany;
-  } catch (error) {
+  } catch{
     return null;
   } 
 }
