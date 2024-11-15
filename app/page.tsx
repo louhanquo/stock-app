@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getCompanyOverviewById } from "@/data/company-overview"; // Adjust the import path as needed
 import type { NextPage } from "next";
 
